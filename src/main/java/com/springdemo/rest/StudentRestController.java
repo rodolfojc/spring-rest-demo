@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,4 +36,16 @@ public class StudentRestController {
 	public List<Student> getStudents(){
 		return theStudents;
 	}
+	
+	//DEFINE ENDPOINT FOR /STUDENTS/{STUDENTID} RETURN STUDENT AT INDEX
+	@GetMapping("/students/{studentId}")
+	public Student getStudent(@PathVariable int studentId) {
+		
+		//JUST INDEX INTO THE LIST 
+		
+		return theStudents.get(studentId);
+	} 
+	
+	
+	
 }
